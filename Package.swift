@@ -37,7 +37,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "WireGuardKitGoBinary",
-            url: "",
+            url: "https://github.com/purplitinc/wireguard-apple/releases/download/go-binary-20250309/WireGuardKitGoBinary.xcframework.zip",
             checksum: "4f5111862263d278c55fab8a75f2b7a04c5bcc3cbea674ca1c11c14d2ea3a654"
         )
     ]
