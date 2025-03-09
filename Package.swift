@@ -6,8 +6,7 @@ import PackageDescription
 let package = Package(
     name: "WireGuardKit",
     platforms: [
-        .macOS(.v12),
-        .iOS(.v15)
+        .iOS(.v13)
     ],
     products: [
         .library(name: "WireGuardKit", targets: ["WireGuardKit"])
@@ -25,16 +24,21 @@ let package = Package(
         ),
         .target(
             name: "WireGuardKitGo",
-            dependencies: [],
+            dependencies: ["WireGuardKitGoBinary"],
             exclude: [
                 "goruntime-boottime-over-monotonic.diff",
                 "go.mod",
                 "go.sum",
                 "api-apple.go",
-                "Makefile"
+                "Makefile",
+                "build_binary.sh"
             ],
-            publicHeadersPath: ".",
-            linkerSettings: [.linkedLibrary("wg-go")]
+            publicHeadersPath: "."
+        ),
+        .binaryTarget(
+            name: "WireGuardKitGoBinary",
+            url: "",
+            checksum: "4f5111862263d278c55fab8a75f2b7a04c5bcc3cbea674ca1c11c14d2ea3a654"
         )
     ]
 )
